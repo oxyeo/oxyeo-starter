@@ -1,0 +1,50 @@
+[id='oxyeo-starter']
+= Oxyeo Starter
+
+The parent Maven POM for Oxyeo projects.
+
+[id='what-is-it']
+== What is it?
+
+The Oxyeo Starter parent POM provides default configuration for Maven builds.
+
+* Recommended/Default versions for the most commonly used Maven plugins, Java libraries and frameworks.
+* Profiles for quickly configuring Maven and Java projects.
+
+[id='how-to-use-it']
+== How to use it?
+
+Start out by adding the parent configuration to your POM.
+
+[source,xml]
+----
+<parent>
+  <groupId>dev.oxyeo</groupId>
+  <artifactId>oxyeo-starter</artifactId>
+  <version>1.0.0</version>
+</parent>
+----
+
+The POM includes properties which allow various build configuration to be customized.
+
+[id='the-spring-boot-web-profile']
+== The Spring Boot Web Profile
+
+This POM includes a Maven profile called "spring-boot-web" which provides default configuration to build spring boot web projects.
+
+=== Activation
+
+To activate that profile, project using `oxyeo-starter` parent POM should contain an empty file with the name `oxyeo-spring-boot-web-starter` in the location `${basedir}/.config`
+
+=== Properties
+In order for the spring-boot-web profile properly build spring boot web project, some properties must be available to the current build.
+These properties can either be set in the project POM, or on the command line.
+
+[source,xml]
+----
+  <properties>
+    <!-- ** Required Properties ** -->
+    <!-- The name of the spring boot main class. -->
+    <mainClass>com.example.Application</mainClass>
+  </properties>
+----
